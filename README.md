@@ -1,7 +1,7 @@
 # Standalone Database
 
 <!-- ![database](./public/docker-container.png) -->
-> <img src="./public/docker-container.png" alt="docker container" class="width:10em;display:block;margin-left:auto;margin-right:auto;">
+<img src="./public/docker-container.png" alt="docker container" class="display:block;margin-left:auto;margin-right:auto;width:50%;height:50%;">
 
 ## Table of content
 - [Purpose](#purpose)
