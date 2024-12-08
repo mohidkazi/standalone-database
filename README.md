@@ -1,11 +1,10 @@
 # Standalone Database
 
-<!-- ![database](./public/docker-container.png) -->
-<img src="./public/docker-container.png" alt="docker container" class="display:block;margin-left:auto;margin-right:auto;width:50%;height:50%;">
+![database](./public/docket-hero.png)
 
 ## Table of content
 - [Purpose](#purpose)
-- [Postgresql Redis](#postgresql-redis)
+- [Postgresql Redis](#postgres-redis)
   - [Project structure](#project-structure)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -23,7 +22,8 @@ This repo contains the Datalayer which is agnostic of Service layer. The purpose
 ## Postgres Redis
 This example provides a base setup for using [PostgreSQL](https://www.postgresql.org/) and [pgAdmin](https://www.pgadmin.org/) and [redis](https://redis.io/). 
 
-More details on how to customize the installation and the compose file can be found here [PostgreSQL](https://hub.docker.com/_/postgres) here [pgAdmin](https://hub.docker.com/r/dpage/pgadmin4/) and here [redis](https://hub.docker.com/_/redis).
+> [!Tip]
+> More details on how to customize the installation and the compose file can be found here [PostgreSQL](https://hub.docker.com/_/postgres) here [pgAdmin](https://hub.docker.com/r/dpage/pgadmin4/) and here [redis](https://hub.docker.com/_/redis).
 
 ### Project structure
 ```
@@ -49,7 +49,8 @@ To check whether docker is running as expected, we run following command
 ```shell
 $ docker run hello-world
 ```
-note - refer the [hellow-world](https://hub.docker.com/_/hello-world)
+> [!Note]
+> refer the [hellow-world](https://hub.docker.com/_/hello-world) image description
 
 
 ## Configuration
@@ -60,7 +61,8 @@ $ cp .env.example .env
 ```
 This command will create a `.env` file in the root directory, now you can update the variables with real credentials.
 
-**note - do not add real credentials in `.env.example` file**
+> [!Note]
+> **do not add real credentials in `.env.example` file**
 
 ### Setup Docker
 In this block, i will focus on postgres docker setup, as the steps are similar across docker packages.
@@ -74,7 +76,8 @@ We can either write the docker config manually, for which we can follow the [pos
 
 Or we can use `docker init` command which will create the config based on the repo environment.
 
-note - when i used `docker init` for a backend nodejs project, i had to manually change few things to get it working properly.
+> [!Note]
+> When i used `docker init` for a backend nodejs project, i had to manually change few things to get it working properly.
 
 ## Deploy
 Now we can finally start running the docker application. We will use [docker compose](https://docs.docker.com/reference/cli/docker/compose/up/) command to run multiple services with single command.
@@ -82,7 +85,8 @@ Now we can finally start running the docker application. We will use [docker com
 ```bash
 docker compose up
 ```
-note - for linux system, if you run above command as is, you will get `permission denied` error, To resole this issue, you will need to run the docker command using `sudo`.
+> [!Tip]
+> For linux system, if you run above command as is, you will get `permission denied` error, To resole this issue, you will need to run the docker command using `sudo`.
 
 ### Miscellaneous
 Now that everything is working as expected, we will move on to next step
@@ -121,7 +125,9 @@ After logging in with your credentials of the .env file, you can add your databa
 - Username: $DB_USER (see .env)
 - Password: $DB_PASSWORD (see .env)
 
-<img src="./public/pgadmin-login.png" height="500">
+<p align="center">
+<img src="./public/pgadmin-login.png" alt="pgadmin" height="400">
+</p>
 
 ## Bonus
 Note that when you create a database, its always recommended to create a non root user to access database from application layer.
@@ -137,7 +143,8 @@ SELECT CURRENT_USER; --check current user
 ```
 Once you have created new user, make changes in your `.env` file and update `DB_USER` and `DB_PASSWORD` with the credentials you have created.
 
-note - that you need to be logged in as superuser to create new user and grant them privileges
+> [!Important]
+> You need to be logged in as superuser to create new user and grant them privileges
 
 
 ## Reference
